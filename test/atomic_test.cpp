@@ -1,9 +1,10 @@
-#include <ext/atomicity.h>
+#include <bits/atomicity.h>
+#include <gtest/gtest.h>
 #include "scoped_latency.h"
 
 using namespace __gnu_cxx;
 
-int main(int argc, char *argv[])
+TEST(Atomic, AtomicInc)
 {
     static const int64_t LOOP_COUNT = 9999999999;
     {
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
         _Atomic_word count = 0;
         for (int64_t i = 0; i < LOOP_COUNT; ++i)
         {
-            __atomic_add_dispatch(&count, 1);
+            __atomic_add(&count, 1);
         }
     }
     return 0;

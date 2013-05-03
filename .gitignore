@@ -1,0 +1,4 @@
+deps
+.sync
+*.o
+*.a
