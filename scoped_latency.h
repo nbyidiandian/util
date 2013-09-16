@@ -10,11 +10,11 @@ namespace util
 class ScopedLatency
 {
 public:
-    ScopedLatency(const std::string &message = "");
+    ScopedLatency(const char *format, ...);
     virtual ~ScopedLatency();
 private:
     int64_t _start;
-    std::string _message;
+    std::string _format;
 };
 
 }
