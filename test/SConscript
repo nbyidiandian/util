@@ -1,0 +1,19 @@
+Import("env")
+
+env = env.Clone()
+
+util_test_sources = ['run_test.cpp',
+                     'atomic_test.cpp',
+                     'comparator_test.cpp',
+                     'string_test.cpp',
+                     'cpu_cache_test.cpp',
+                     'stream_test.cpp',
+                     'list_test.cpp'
+                     ]
+util_test_libs = ['util', 'gtest', 'pthread', 'dl']
+util_test_libattrs = {'gtest' : 'static'}
+
+env.aTest(target = 'util_unittest',
+          source = util_test_sources,
+          LIBS = util_test_libs,
+          LIBATTRS = util_test_libattrs)

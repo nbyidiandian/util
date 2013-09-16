@@ -1,6 +1,7 @@
 build
 build_options.py
 deps
+.sconsign.dblite
 .sync
 *.o
 *.a
