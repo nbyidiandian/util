@@ -10,14 +10,14 @@
  * @brief 类实例在线程内共享实现
  */
 
-#ifndef SP_BASIC_UTIL_REUSEABLE_H
-#define SP_BASIC_UTIL_REUSEABLE_H
+#ifndef UTIL_REUSEABLE_H
+#define UTIL_REUSEABLE_H
 
 #include <vector>
 
 #include "thread_local.h"
 
-namespace sp_basic
+namespace util
 {
 
 /**
@@ -194,9 +194,9 @@ void Reuseable<T, FreeCntLimit, ReuseLimit>::destroy(void *obj_list)
     }
 }
 
-} // end of namespace sp_basic
+}
 
-#endif /* SP_BASIC_UTIL_REUSEABLE_H */
+#endif /* UTIL_REUSEABLE_H */
 
 
 /*! @} */

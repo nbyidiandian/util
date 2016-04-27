@@ -37,6 +37,47 @@ static std::string appendCharToArray(size_t len, char c)
     return str;
 }
 
+static std::string join1(const std::vector<std::string> &vec, const std::string &s_sep)
+{
+    std::string ret;
+    for (size_t i = 0; i < vec.size(); ++i)
+    {
+        if (i == 0)
+            ret += vec[i];
+        else
+            ret += s_sep + vec[i];
+    }
+    return ret;
+}
+
+static std::string join2(const std::vector<std::string> &vec, const std::string &s_sep)
+{
+    std::string ret;
+    for (size_t i = 0; i < vec.size(); ++i)
+    {
+        if (i == (vec.size() - 1))
+            ret += vec[i];
+        else
+            ret += vec[i] + s_sep;
+    }
+    return ret;
+}
+
+static std::string join3(const std::vector<std::string> &vec, const std::string &s_sep)
+{
+    std::string ret;
+    size_t i = 0;
+    for (; i < vec.size(); ++i)
+    {
+        ret += vec[i] + s_sep;
+    }
+    ret.erase(ret.find_last_not_of(s_sep) + 1)
+    size_t s1 = str.size();
+    size_t s2 = suffix.size();
+    if ((s1 >= s2) && (str.compare(s1 - s2, s2, suffix) == 0))
+    return ret;
+}
+
 TEST(StringTest, testPushBack)
 {
     static const size_t LOOP_COUNT = 10000;
@@ -62,4 +103,8 @@ TEST(StringTest, testPushBack)
             appendCharToArray(STRING_LENGTH, 'a');
         }
     }
+}
+
+TEST(StringTest, testJoin)
+{
 }

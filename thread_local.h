@@ -1,9 +1,11 @@
-#ifndef __SP_BASIC_TLS_H_
-#define __SP_BASIC_TLS_H_
+#ifndef UTIL_THREAD_LOCAL_H
+#define UTIL_THREAD_LOCAL_H
+
 #include <pthread.h>
 
-namespace sp_basic
+namespace util
 {
+
 class Tls
 {
 public:
@@ -18,4 +20,5 @@ protected:
 };
 
 }
+
 #endif

@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <ext/atomicity.h>
 #include <gtest/gtest.h>
 #include "scoped_latency.h"
 

@@ -1,11 +1,8 @@
 #include <list>
-#include "sp_basic/common/common.h"
-#include "Log.h"
-#include "Tls.h"
 
 using namespace std;
 
-namespace sp_basic
+namespace util
 {
 #define	TLS_OUT_OF_INDEXES          0xffffffff
 
