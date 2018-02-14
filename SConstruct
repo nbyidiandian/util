@@ -10,6 +10,7 @@ env.addOptions('release')
 
 env.Append(depend_includedir = 'deps/include')
 env.Append(depend_libdir = 'deps/lib')
+env.Append(CXXFLAGS = '-std=c++11')
 
 env.SConscript(dirs='.',
                exports='env',

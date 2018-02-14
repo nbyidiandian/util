@@ -1,8 +1,37 @@
 #include <string>
+#include <cstddef>
 #include <gtest/gtest.h>
 #include "scoped_latency.h"
 
-static std::string appendCharToString(size_t len, char c)
+class StringTest : public ::testing::Test
+{
+public:
+    StringTest();
+    virtual ~StringTest();
+public:
+    void SetUp();
+    void TearDown();
+protected:
+    std::string appendCharToString(size_t, char);
+    std::string appendCharToStringWithoutCheck(size_t len, char c);
+    std::string appendCharToArray(size_t len, char c);
+    std::string join1(const std::vector<std::string> &vec, const std::string &s_sep);
+    std::string join2(const std::vector<std::string> &vec, const std::string &s_sep);
+};
+
+StringTest::StringTest() {
+}
+
+StringTest::~StringTest() {
+}
+
+void StringTest::SetUp() {
+}
+
+void StringTest::TearDown() {
+}
+
+std::string StringTest::appendCharToString(size_t len, char c)
 {
     std::string str;
     str.reserve(len);
@@ -13,7 +42,7 @@ static std::string appendCharToString(size_t len, char c)
     return str;
 }
 
-static std::string appendCharToStringWithoutCheck(size_t len, char c)
+std::string StringTest::appendCharToStringWithoutCheck(size_t len, char c)
 {
     std::string str;
     str.reserve(len);
@@ -25,7 +54,7 @@ static std::string appendCharToStringWithoutCheck(size_t len, char c)
     return str;
 }
 
-static std::string appendCharToArray(size_t len, char c)
+std::string StringTest::appendCharToArray(size_t len, char c)
 {
     char *buffer = new char[len + 1];
     for (size_t i = 0; i < len; ++i)
@@ -37,7 +66,7 @@ static std::string appendCharToArray(size_t len, char c)
     return str;
 }
 
-static std::string join1(const std::vector<std::string> &vec, const std::string &s_sep)
+std::string StringTest::join1(const std::vector<std::string> &vec, const std::string &s_sep)
 {
     std::string ret;
     for (size_t i = 0; i < vec.size(); ++i)
@@ -50,7 +79,7 @@ static std::string join1(const std::vector<std::string> &vec, const std::string 
     return ret;
 }
 
-static std::string join2(const std::vector<std::string> &vec, const std::string &s_sep)
+std::string StringTest::join2(const std::vector<std::string> &vec, const std::string &s_sep)
 {
     std::string ret;
     for (size_t i = 0; i < vec.size(); ++i)
@@ -63,22 +92,7 @@ static std::string join2(const std::vector<std::string> &vec, const std::string 
     return ret;
 }
 
-static std::string join3(const std::vector<std::string> &vec, const std::string &s_sep)
-{
-    std::string ret;
-    size_t i = 0;
-    for (; i < vec.size(); ++i)
-    {
-        ret += vec[i] + s_sep;
-    }
-    ret.erase(ret.find_last_not_of(s_sep) + 1)
-    size_t s1 = str.size();
-    size_t s2 = suffix.size();
-    if ((s1 >= s2) && (str.compare(s1 - s2, s2, suffix) == 0))
-    return ret;
-}
-
-TEST(StringTest, testPushBack)
+TEST_F(StringTest, testPushBack)
 {
     static const size_t LOOP_COUNT = 10000;
     static const size_t STRING_LENGTH = 1024;
@@ -105,6 +119,6 @@ TEST(StringTest, testPushBack)
     }
 }
 
-TEST(StringTest, testJoin)
+TEST_F(StringTest, testJoin)
 {
 }

@@ -19,6 +19,7 @@
 #include <sys/time.h>
 #include <time.h>
 #include <string>
+#include <cstdlib>
 
 namespace util
 {

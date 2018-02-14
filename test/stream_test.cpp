@@ -14,7 +14,7 @@ struct ThreadArgs
 std::string snprintfItoa(int64_t i)
 {
     char buf[64];
-    int len = snprintf(buf, 64, "%lld", i);
+    int len = snprintf(buf, 64, "%ld", i);
     return std::string(buf, len);
 }
 

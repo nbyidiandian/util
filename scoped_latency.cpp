@@ -1,4 +1,5 @@
 #include <stdarg.h>
+#include <cstdio>
 #include "scoped_latency.h"
 
 namespace util
